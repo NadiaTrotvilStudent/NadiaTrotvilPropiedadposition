@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprendimiento de Velas Aromáticas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="products.html">Productos</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1> Aromas del Alma </h1>
+        <h2>Bienvenidos a Nuestra Tienda de Velas Aromáticas</h2>
+    </header>
+
+    <main>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="Imagenes/vela1.jpeg" alt="Candle 1">
+                <img src="Imagenes/vela2.jpeg" alt="Candle 2">
+                <img src="Imagenes/vela3.jpeg" alt="Candle 3">
+                <img src="Imagenes/vela4.jpeg" alt="Candle 3">
+
+            </div>
+            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+        </div>    </main>
+
+    <footer>
+        <p>&copy; 2024 Velas Aromáticas. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-images img');
+            if (index >= slides.length) currentIndex = 0;
+            if (index < 0) currentIndex = slides.length - 1;
+            slides.forEach((slide, i) => {
+                slide.style.display = i === currentIndex ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            showSlide(++currentIndex);
+        }
+
+        function prevSlide() {
+            showSlide(--currentIndex);
+        }
+
+        showSlide(currentIndex);
+    </script>
+</body>
+</html>
